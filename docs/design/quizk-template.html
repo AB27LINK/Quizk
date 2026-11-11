@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>QUIZK UI Template</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20200%20200%22%20width%3D%22200%22%20height%3D%22200%22%20xmlns%3Ac2pa%3D%22http%3A//c2pa.org/manifest%22%3E%3Cg%20transform%3D%22translate%280%2C0%29%20scale%281%29%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22gfav%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232B2670%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23120F33%22/%3E%3C/linearGradient%3E%3C/defs%3E%0A%3Crect%20width%3D%22200%22%20height%3D%22200%22%20rx%3D%2246%22%20fill%3D%22url%28%23gfav%29%22/%3E%0A%3Ccircle%20cx%3D%2298%22%20cy%3D%22126%22%20r%3D%2237%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%2219%22/%3E%0A%3Cline%20x1%3D%22108%22%20y1%3D%22134%22%20x2%3D%22146%22%20y2%3D%22170%22%20stroke%3D%22%23C6F432%22%20stroke-width%3D%2219%22%20stroke-linecap%3D%22round%22/%3E%0A%3Cpolygon%20points%3D%2250%2C60%20100%2C38%20150%2C60%20100%2C82%22%20fill%3D%22%23C6F432%22/%3E%0A%3Cpath%20d%3D%22M141%2064%20v22%22%20stroke%3D%22%23C6F432%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22/%3E%3Ccircle%20cx%3D%22141%22%20cy%3D%2290%22%20r%3D%226%22%20fill%3D%22%23C6F432%22/%3E%3C/g%3E%3Cmetadata%3E%3Cc2pa%3Amanifest%3EAAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTpmMmQ4ZmI2MS1hYzcxLTQwMDAtYmJhMy0xMDA1N2M4ZDg3YTMAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaC9fkM4tO911KCnPX231KTAAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDpmZTVhMDFmYS02OTM4LTRhZjUtYTgzMS00MzdmYmQ0NTQ0NTJscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNomygnLaw2Hf4oCh5Sm5BtEwAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFgg%2BNZ%2BFtgE3f5qzydsBYxcRwTmDpmePCVyfKcYvKm5n5ikZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaNLtzBtzn5Nc0%2BdCrkswhjEAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIPmjgwWOQiEh0z/8ya6JEGArpdZQJxBU3TcZF%2BIOZY6HZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GQMUZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmYyZDhmYjYxLWFjNzEtNDAwMC1iYmEzLTEwMDU3YzhkODdhMy9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjU2MjZiNGMxLTMxZDEtNDQyMy05NWYzLWU5NDE4ZTQ4YTk0MHJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCD41n4W2ATd/mrPJ2wFjFxHBOYOmZ48JXJ8pxi8qbmfmKJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggD0EQB99LZ2nisGVdVyt2oq/NpXPGld4vsMHk5FdVbvGiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggsR2QN%2BhF8NRuA6ETOFE6rnDsE2gslcLIljmwPZ0HSZ90Y2xhaW1fZ2VuZXJhdG9yX2luZm%2BjZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj%2BOPEz5o%2BnMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1%2BUCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9%2B1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQFfxN3G2J6E0BudFqCD5T4J4QbMqRSSJEsBsymR%2Bz9AHb0YUR7R1lyOuUh/8IPl3oCvkS/k5w3yjI8kqr/KRbUs%3D%3C/c2pa%3Amanifest%3E%3C/metadata%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===== DESIGN TOKENS (copy these into your app's global CSS) ===== */
+:root{
+  --bg:#f6f4ff; --surface:#ffffff; --ink:#14122b; --muted:#6b6885; --line:#e4e0f5;
+  --navy:#120f33; --navy-2:#2b2670; --brand:#6c4df6; --brand-ink:#ffffff; --brand-soft:#ece8ff; --pop:#c6f432; --pop-ink:#14122b;
+  --easy:#1fa971; --easy-bg:#e3f7ee; --med:#c77d00; --med-bg:#fff2d9; --hard:#e5484d; --hard-bg:#fde8e9;
+  --ok:#1fa971; --ok-bg:#e3f7ee; --bad:#e5484d; --bad-bg:#fde8e9;
+  --radius:18px; --radius-sm:12px; --shadow:0 6px 24px rgba(60,40,140,.10);
+  --font-head:"Space Grotesk",system-ui,sans-serif; --font-body:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0f0d1f; --surface:#1a1733; --ink:#f1efff; --muted:#a09cc4; --line:#2e2a52;
+  --brand:#8b73ff; --brand-ink:#0f0d1f; --brand-soft:#2a2457; --pop:#c6f432;
+  --easy:#4ad8a0; --easy-bg:#12352a; --med:#ffc14d; --med-bg:#3a2d0f; --hard:#ff7b80; --hard-bg:#3d1a1d;
+  --ok:#4ad8a0; --ok-bg:#12352a; --bad:#ff7b80; --bad-bg:#3d1a1d; --shadow:0 6px 24px rgba(0,0,0,.4)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.55}
+h1,h2,h3{font-family:var(--font-head);line-height:1.15;margin:0}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+
+/* ===== LAYOUT ===== */
+.topbar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar-in{max-width:1000px;margin:0 auto;padding:12px 18px;display:flex;align-items:center;gap:18px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-head);font-weight:700;font-size:1.45rem;letter-spacing:-.5px}
+.logo b{color:var(--brand)}
+nav{display:flex;gap:4px;margin-left:auto}
+nav button{border:0;background:none;padding:8px 14px;border-radius:999px;color:var(--muted);font-weight:600}
+nav button[aria-current="true"]{background:var(--brand-soft);color:var(--brand)}
+main{max-width:1000px;margin:0 auto;padding:26px 18px 90px}
+.screen{display:none;animation:in .25s ease}.screen.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:16px}.g2{grid-template-columns:1fr 1fr}.g4{grid-template-columns:repeat(4,1fr)}
+.muted{color:var(--muted)}.eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brand)}
+
+/* ===== COMPONENTS ===== */
+.btn{border:0;border-radius:999px;padding:13px 24px;font-weight:700;background:var(--brand);color:var(--brand-ink);box-shadow:0 4px 0 rgba(0,0,0,.18);transition:transform .1s}
+.btn:active{transform:translateY(3px);box-shadow:none}
+.btn.pop{background:var(--pop);color:var(--pop-ink)}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line);box-shadow:none}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:999px;font-size:.78rem;font-weight:700}
+.badge::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.badge.easy{background:var(--easy-bg);color:var(--easy)}.badge.medium{background:var(--med-bg);color:var(--med)}
+.badge.hard{background:var(--hard-bg);color:var(--hard)}.badge.auto{background:var(--brand-soft);color:var(--brand)}
+textarea,select{width:100%;border:2px solid var(--line);background:var(--bg);color:var(--ink);border-radius:var(--radius-sm);padding:12px;font:inherit}
+textarea{min-height:130px;resize:vertical}
+label{font-size:.82rem;font-weight:600;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+.drop{border:2px dashed var(--line);border-radius:var(--radius-sm);padding:14px;text-align:center;color:var(--muted);font-size:.9rem;margin:12px 0}
+.seg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;background:var(--bg);padding:6px;border-radius:999px;border:2px solid var(--line)}
+.seg button{border:0;background:none;border-radius:999px;padding:10px 4px;font-weight:700;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--brand);color:var(--brand-ink)}
+.opt{display:flex;gap:12px;align-items:center;width:100%;text-align:left;margin-top:10px;padding:14px 16px;border-radius:var(--radius-sm);border:2px solid var(--line);background:var(--surface);font-weight:500;transition:transform .1s,border-color .1s}
+.opt:hover{border-color:var(--brand);transform:translateX(3px)}
+.opt i{font-style:normal;display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:var(--brand-soft);color:var(--brand);font-weight:700;flex:none}
+.opt.ok{border-color:var(--ok);background:var(--ok-bg)}.opt.bad{border-color:var(--bad);background:var(--bad-bg)}
+.bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}.bar>div{height:100%;border-radius:999px;background:var(--brand)}
+.bar.easy>div{background:var(--easy)}.bar.medium>div{background:var(--med)}.bar.hard>div{background:var(--hard)}
+.expl{margin-top:14px;padding:14px;border-radius:var(--radius-sm);background:var(--brand-soft);font-size:.94rem}
+.stat b{display:block;font-family:var(--font-head);font-size:2rem}
+.ring{width:150px;height:150px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--brand) calc(var(--p)*1%),var(--line) 0)}
+.ring span{width:118px;height:118px;border-radius:50%;background:var(--surface);display:grid;place-items:center;font-family:var(--font-head);font-size:2.1rem;font-weight:700}
+.row{display:flex;align-items:center;gap:14px;padding:12px 0;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}.row .grow{flex:1;min-width:0}
+.avatar{width:38px;height:38px;border-radius:50%;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;font-weight:700;flex:none}
+.rank{width:30px;font-family:var(--font-head);font-weight:700;color:var(--muted)}
+.me{background:var(--brand-soft);border-radius:var(--radius-sm);padding-left:10px;padding-right:10px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.chip{border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-weight:600;font-size:.85rem}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.hero h1{font-size:clamp(2rem,6vw,3.4rem);letter-spacing:-1px}
+.hero h1 mark{background:var(--pop);color:var(--pop-ink);padding:0 10px;border-radius:12px}
+.hero p{max-width:520px;font-size:1.05rem}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:720px){
+  .g2,.g4{grid-template-columns:1fr 1fr}.g2.stack{grid-template-columns:1fr}
+  nav{position:fixed;left:0;right:0;bottom:0;margin:0;justify-content:space-around;background:var(--surface);border-top:1px solid var(--line);padding:8px 6px calc(8px + env(safe-area-inset-bottom,0px))}
+  nav button{padding:8px 8px;font-size:.78rem}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-in">
+  <div class="logo" aria-label="QUIZK"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="38" height="38" aria-hidden="true"><g transform="translate(0,0) scale(1)"><defs><linearGradient id="gtop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2B2670"/><stop offset="1" stop-color="#120F33"/></linearGradient></defs>
+<rect width="200" height="200" rx="46" fill="url(#gtop)"/>
+<circle cx="98" cy="126" r="37" fill="none" stroke="#fff" stroke-width="19"/>
+<line x1="108" y1="134" x2="146" y2="170" stroke="#C6F432" stroke-width="19" stroke-linecap="round"/>
+<polygon points="50,60 100,38 150,60 100,82" fill="#C6F432"/>
+<path d="M141 64 v22" stroke="#C6F432" stroke-width="5" stroke-linecap="round"/><circle cx="141" cy="90" r="6" fill="#C6F432"/></g><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTpmMmQ4ZmI2MS1hYzcxLTQwMDAtYmJhMy0xMDA1N2M4ZDg3YTMAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaC9fkM4tO911KCnPX231KTAAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDpmZTVhMDFmYS02OTM4LTRhZjUtYTgzMS00MzdmYmQ0NTQ0NTJscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNomygnLaw2Hf4oCh5Sm5BtEwAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFgg+NZ+FtgE3f5qzydsBYxcRwTmDpmePCVyfKcYvKm5n5ikZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaNLtzBtzn5Nc0+dCrkswhjEAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIPmjgwWOQiEh0z/8ya6JEGArpdZQJxBU3TcZF+IOZY6HZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GQMUZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmYyZDhmYjYxLWFjNzEtNDAwMC1iYmEzLTEwMDU3YzhkODdhMy9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjU2MjZiNGMxLTMxZDEtNDQyMy05NWYzLWU5NDE4ZTQ4YTk0MHJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCD41n4W2ATd/mrPJ2wFjFxHBOYOmZ48JXJ8pxi8qbmfmKJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggD0EQB99LZ2nisGVdVyt2oq/NpXPGld4vsMHk5FdVbvGiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggsR2QN+hF8NRuA6ETOFE6rnDsE2gslcLIljmwPZ0HSZ90Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQFfxN3G2J6E0BudFqCD5T4J4QbMqRSSJEsBsymR+z9AHb0YUR7R1lyOuUh/8IPl3oCvkS/k5w3yjI8kqr/KRbUs=</c2pa:manifest></metadata></svg><span>QUIZ<b>K</b></span></div>
+  <nav id="nav" aria-label="Main">
+    <button data-s="gen" aria-current="true">Create</button>
+    <button data-s="quiz">Quiz</button>
+    <button data-s="res">Results</button>
+    <button data-s="dash">Dashboard</button>
+    <button data-s="lb">Leaderboard</button>
+  </nav>
+</div></header>
+
+<main>
+<!-- 1. CREATE -->
+<section class="screen on" id="gen">
+  <div class="hero" style="margin-bottom:24px">
+    <div class="eyebrow">Notes in. Knowledge out.</div>
+    <h1 style="margin:8px 0 12px">No Cap, <mark>Just Facts.</mark></h1>
+    <p class="muted">Upload your notes. Get a quiz. Know what you actually know.</p>
+  </div>
+  <div class="card">
+    <label>Your notes<textarea placeholder="Paste your notes or article here…"></textarea></label>
+    <div class="drop">or drop a .txt, .md or .pdf file here</div>
+    <div class="eyebrow" style="margin:16px 0 8px">Difficulty</div>
+    <div class="seg" id="seg">
+      <button aria-pressed="false" data-d="Easy">Easy</button>
+      <button aria-pressed="true" data-d="Medium">Medium</button>
+      <button aria-pressed="false" data-d="Hard">Hard</button>
+      <button aria-pressed="false" data-d="Auto">Auto</button>
+    </div>
+    <p class="muted" id="dd" style="margin:10px 4px 16px;font-size:.92rem"></p>
+    <div class="grid g2 stack" style="margin-bottom:18px">
+      <label>Questions<select><option>5</option><option selected>8</option><option>10</option><option>15</option></select></label>
+      <label>Language<select><option>English</option><option>Hindi</option><option>Same as source</option></select></label>
+    </div>
+    <button class="btn" data-go="quiz">Generate my quiz →</button>
+  </div>
+</section>
+
+<!-- 2. QUIZ -->
+<section class="screen" id="quiz">
+  <div class="card">
+    <div class="row" style="border:0;padding-top:0"><span class="muted grow">Question 3 of 8</span><span class="badge medium">Medium</span><b>Score 2</b></div>
+    <div class="bar" style="margin:6px 0 20px"><div style="width:37%"></div></div>
+    <h2 style="font-size:1.35rem">Why does the author say re-reading notes is a weak study method?</h2>
+    <button class="opt"><i>A</i>It takes too much time</button>
+    <button class="opt ok"><i>B</i>It doesn’t test whether you understand</button>
+    <button class="opt bad"><i>C</i>It makes notes harder to read</button>
+    <button class="opt"><i>D</i>It only works for short texts</button>
+    <div class="expl"><b>Nice one.</b> The source says passive reading feels productive but never checks understanding.</div>
+    <button class="btn pop" style="margin-top:16px" data-go="res">Next question →</button>
+  </div>
+</section>
+
+<!-- 3. RESULTS -->
+<section class="screen" id="res">
+  <div class="card">
+    <div class="grid g2 stack" style="align-items:center">
+      <div style="display:flex;gap:22px;align-items:center;flex-wrap:wrap">
+        <div class="ring" style="--p:75"><span>6/8</span></div>
+        <div><span class="badge medium">Medium</span><h2 style="margin:10px 0 4px">You’re on a roll</h2><p class="muted" style="margin:0">75% correct · +9 points</p></div>
+      </div>
+      <div class="expl" style="margin:0"><b>Level up?</b> Two more scores of 80% or more and Auto mode will move you to Hard.</div>
+    </div>
+    <div style="margin:22px 0 8px" class="eyebrow">Review</div>
+    <div class="row"><span class="badge easy">✓</span><span class="grow">What is the main goal of QUIZK?</span></div>
+    <div class="row"><span class="badge hard">✗</span><span class="grow">Which step happens before AI quiz generation?<br><small class="muted">Correct: Content processing</small></span></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+      <button class="btn">Retake</button><button class="btn ghost">Try Hard</button><button class="btn ghost" data-go="gen">New source</button>
+    </div>
+  </div>
+</section>
+
+<!-- 4. DASHBOARD -->
+<section class="screen" id="dash">
+  <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px"><div class="avatar" style="width:52px;height:52px">AK</div><div><h2>Hey, Anoop 👋</h2><span class="muted">5-day streak. Keep it going.</span></div></div>
+  <div class="grid g4" style="margin-bottom:16px">
+    <div class="card stat"><span class="muted">Quizzes</span><b>24</b></div>
+    <div class="card stat"><span class="muted">Questions</span><b>192</b></div>
+    <div class="card stat"><span class="muted">Accuracy</span><b>78%</b></div>
+    <div class="card stat"><span class="muted">Points</span><b>264</b></div>
+  </div>
+  <div class="grid g2 stack">
+    <div class="card"><h3 style="margin-bottom:14px">Accuracy by difficulty</h3>
+      <div class="muted" style="font-size:.85rem">Easy · 92%</div><div class="bar easy" style="margin:4px 0 12px"><div style="width:92%"></div></div>
+      <div class="muted" style="font-size:.85rem">Medium · 76%</div><div class="bar medium" style="margin:4px 0 12px"><div style="width:76%"></div></div>
+      <div class="muted" style="font-size:.85rem">Hard · 54%</div><div class="bar hard" style="margin:4px 0 0"><div style="width:54%"></div></div>
+    </div>
+    <div class="card"><div class="eyebrow">Your roadmap</div><h3 style="margin:6px 0 8px">Next up: Operating Systems notes</h3>
+      <p class="muted" style="margin-top:0">You scored 85% on Medium. Move up to Hard.</p><span class="badge hard">Try Hard</span>
+      <div class="row" style="margin-top:12px"><span class="grow">Revisit: process scheduling</span><span class="muted">missed 3×</span></div></div>
+  </div>
+</section>
+
+<!-- 5. LEADERBOARD -->
+<section class="screen" id="lb">
+  <h2 style="margin-bottom:14px">Leaderboard</h2>
+  <div class="chips" id="chips"><button class="chip" aria-pressed="true">All</button><button class="chip" aria-pressed="false">Easy</button><button class="chip" aria-pressed="false">Medium</button><button class="chip" aria-pressed="false">Hard</button><button class="chip" aria-pressed="false">This week</button></div>
+  <div class="card" style="padding:10px 18px">
+    <div class="row"><span class="rank">1</span><span class="avatar">RS</span><span class="grow"><b>Riya S.</b><br><small class="muted">31 quizzes · 91% accuracy</small></span><b>412 pts</b></div>
+    <div class="row"><span class="rank">2</span><span class="avatar">MK</span><span class="grow"><b>Manav K.</b><br><small class="muted">28 quizzes · 84% accuracy</small></span><b>368 pts</b></div>
+    <div class="row me"><span class="rank">3</span><span class="avatar">AK</span><span class="grow"><b>You</b><br><small class="muted">24 quizzes · 78% accuracy</small></span><b>264 pts</b></div>
+    <div class="row"><span class="rank">4</span><span class="avatar">PD</span><span class="grow"><b>Priya D.</b><br><small class="muted">19 quizzes · 80% accuracy</small></span><b>231 pts</b></div>
+  </div>
+</section>
+</main>
+
+<script>
+(function(){
+  var D={Easy:"Direct recall of facts and definitions from your notes.",Medium:"Connect two ideas and explain why. Plausible wrong answers.",Hard:"Inference, cause and effect, and very close distractors.",Auto:"We adjust the level for you based on your last two attempts."};
+  function go(id){document.querySelectorAll(".screen").forEach(function(s){s.classList.toggle("on",s.id===id)});
+    document.querySelectorAll("#nav button").forEach(function(b){b.setAttribute("aria-current",String(b.dataset.s===id))});window.scrollTo(0,0)}
+  document.querySelectorAll("[data-s]").forEach(function(b){b.onclick=function(){go(b.dataset.s)}});
+  document.querySelectorAll("[data-go]").forEach(function(b){b.onclick=function(){go(b.dataset.go)}});
+  var dd=document.getElementById("dd");dd.textContent=D.Medium;
+  document.querySelectorAll("#seg button").forEach(function(b){b.onclick=function(){
+    document.querySelectorAll("#seg button").forEach(function(x){x.setAttribute("aria-pressed","false")});
+    b.setAttribute("aria-pressed","true");dd.textContent=D[b.dataset.d]}});
+  document.querySelectorAll("#chips .chip").forEach(function(c){c.onclick=function(){
+    document.querySelectorAll("#chips .chip").forEach(function(x){x.setAttribute("aria-pressed","false")});c.setAttribute("aria-pressed","true")}});
+})();
+</script>
+</body>
+</html>
