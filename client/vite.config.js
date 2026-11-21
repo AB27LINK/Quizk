@@ -17,7 +17,7 @@ export default defineConfig({
     }
   },
   build: {
-    outDir: path.resolve(__dirname, 'dist'),
+    // Vercel serves static assets from the project-level public/ directory.\n    // Keep the local Express build output in client/dist for npm start.\n    outDir: process.env.VERCEL ? path.resolve(__dirname, '../public') : path.resolve(__dirname, 'dist'),
     emptyOutDir: true
   }
 });
