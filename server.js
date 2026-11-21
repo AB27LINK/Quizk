@@ -1,2 +1,7 @@
-// Vercel detects this root-level Express entry point and deploys the app as a Function.
-module.exports = require('./server/index.js');
+// Root Express entry point for Vercel.
+// Vercel detects Express apps from a recognized root entry file that imports express.
+require('dotenv').config();
+require('express');
+const app = require('./server/index.js');
+
+module.exports = app;
