@@ -1,5 +1,25 @@
 import React, { useState, useEffect, useRef } from 'react';
 
+async function readApiJson(response, action = 'complete the request') {
+  const responseText = await response.text();
+  let data;
+
+  try {
+    data = responseText ? JSON.parse(responseText) : {};
+  } catch {
+    const preview = responseText.replace(/\s+/g, ' ').slice(0, 160);
+    throw new Error(
+      `Quizk could not ${action}: the server returned a non-JSON response (HTTP ${response.status}). ${preview || 'The response was empty.'}`
+    );
+  }
+
+  if (!response.ok) {
+    throw new Error(data.error || `Quizk could not ${action} (HTTP ${response.status}).`);
+  }
+
+  return data;
+}
+
 const DIFFICULTY_DESCRIPTIONS = {
   Easy: 'Direct recall of facts and definitions from your notes.',
   Medium: 'Connect two ideas and explain why. Plausible wrong answers.',
@@ -324,8 +344,7 @@ export default function App() {
       })
     })
       .then(async (res) => {
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error || 'Failed to generate quiz');
+        const data = await readApiJson(res, 'generate the quiz');
         startQuiz(data);
       })
       .catch((err) => {
