@@ -5,6 +5,13 @@
 
 require('dotenv').config();
 const path = require('path');
+
+// Vercel's filesystem is read-only except for /tmp. This SQLite database is
+// ephemeral on serverless deployments; use a managed database for persistence.
+if (process.env.VERCEL && !process.env.DB_PATH) {
+  process.env.DB_PATH = path.join('/tmp', 'quizk.db');
+}
+
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
@@ -17,7 +24,7 @@ const statsRoutes = require('./routes/stats.js');
 const { getDatabase } = require('./db.js');
 
 const app = express();
-const PORT = process.env.PORT || 3001;\n\n// Vercel's filesystem is read-only except for /tmp. This SQLite database is\n// ephemeral on serverless deployments; use a managed database for persistence.\nif (process.env.VERCEL && !process.env.DB_PATH) {\n  process.env.DB_PATH = path.join('/tmp', 'quizk.db');\n}
+const PORT = process.env.PORT || 3001;
 
 // Initialize database schema and seeds
 getDatabase();
