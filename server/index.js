@@ -17,7 +17,7 @@ const statsRoutes = require('./routes/stats.js');
 const { getDatabase } = require('./db.js');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;\n\n// Vercel's filesystem is read-only except for /tmp. This SQLite database is\n// ephemeral on serverless deployments; use a managed database for persistence.\nif (process.env.VERCEL && !process.env.DB_PATH) {\n  process.env.DB_PATH = path.join('/tmp', 'quizk.db');\n}
 
 // Initialize database schema and seeds
 getDatabase();
@@ -56,7 +56,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // Serve frontend build in production
-const clientDist = path.resolve(__dirname, '../client/dist');
+const clientDist = process.env.VERCEL\n  ? path.resolve(__dirname, '../public')\n  : path.resolve(__dirname, '../client/dist');
 app.use(express.static(clientDist));
 
 // Catch-all route to client index.html for SPA routing in production
