@@ -7,7 +7,7 @@ async function readApiJson(response, action = 'complete the request') {
   try {
     data = responseText ? JSON.parse(responseText) : {};
   } catch {
-    const preview = responseText.replace(/\\s+/g, ' ').slice(0, 160);
+    const preview = responseText.replace(/\s+/g, ' ').slice(0, 160);
     throw new Error(
       `Quizk could not ${action}: the server returned a non-JSON response (HTTP ${response.status}). ${preview || 'The response was empty.'}`
     );
