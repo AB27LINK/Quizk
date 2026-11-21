@@ -63,7 +63,9 @@ app.get('/api/health', (req, res) => {
 });
 
 // Serve frontend build in production
-const clientDist = process.env.VERCEL\n  ? path.resolve(__dirname, '../public')\n  : path.resolve(__dirname, '../client/dist');
+const clientDist = process.env.VERCEL
+  ? path.resolve(__dirname, '../public')
+  : path.resolve(__dirname, '../client/dist');
 app.use(express.static(clientDist));
 
 // Catch-all route to client index.html for SPA routing in production
