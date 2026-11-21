@@ -1,6 +1,7 @@
 /**
  * server/middleware/auth.js
- * JWT authentication middleware for QUIZK
+ * JWT authentication middleware for QUIZK.
+ * Compatible with both synchronous and asynchronous database layers.
  */
 
 const jwt = require('jsonwebtoken');
@@ -12,7 +13,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'quizk_default_secret_jwt_key_2026'
  * Extracts and verifies JWT from httpOnly cookie or Authorization header.
  * Attaches user to req.user if authenticated; otherwise req.user is null.
  */
-function optionalAuth(req, res, next) {
+async function optionalAuth(req, res, next) {
   const token = req.cookies?.quizk_token || req.headers?.authorization?.replace(/^Bearer\s+/i, '');
 
   if (!token) {
@@ -23,7 +24,7 @@ function optionalAuth(req, res, next) {
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
     const db = getDatabase();
-    const user = db.get('SELECT id, email, name, initials, created_at FROM users WHERE id = ?', [decoded.id]);
+    const user = await db.get('SELECT id, email, name, initials, created_at FROM users WHERE id = ?', [decoded.id]);
     req.user = user || null;
   } catch {
     req.user = null;
@@ -49,4 +50,3 @@ module.exports = {
   optionalAuth,
   requireAuth
 };
-

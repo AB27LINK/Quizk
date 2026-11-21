@@ -74,6 +74,16 @@ test('POST /api/auth/login authenticates demo user and issues cookie', async () 
   assert.equal(data.user.name, 'Abhi');
   const cookie = res.headers['set-cookie'];
   assert.ok(cookie && String(cookie).includes('quizk_token='));
+
+  // Verify GET /api/me works with the issued cookie
+  const meRes = await request(app, {
+    method: 'GET',
+    url: '/api/me',
+    headers: { cookie: Array.isArray(cookie) ? cookie.join('; ') : String(cookie) }
+  });
+  assert.equal(meRes.status, 200);
+  const meData = await meRes.json();
+  assert.equal(meData.user?.email, 'abhi@quizk.dev');
 });
 
 test('POST /api/quiz rejects notes under 200 characters', async () => {
@@ -152,4 +162,54 @@ test('GET /api/roadmap returns next steps and weekly plan', async () => {
   const data = await res.json();
   assert.ok(Array.isArray(data.nextSteps));
   assert.equal(data.weeklyPlan.length, 3);
+});
+
+test('api/index.js serverless handler bridges requests correctly', async () => {
+  const serverlessHandler = require('../api/index.js');
+  const res = await request(serverlessHandler, { method: 'GET', url: '/api/health' });
+  assert.equal(res.status, 200);
+  const data = await res.json();
+  assert.equal(data.status, 'ok');
+  assert.equal(data.name, 'QUIZK');
+});
+
+test('Endpoints respond even if serverless proxy strips /api prefix', async () => {
+  const res = await request(app, { method: 'GET', url: '/health' });
+  assert.equal(res.status, 200);
+  const data = await res.json();
+  assert.equal(data.status, 'ok');
+});
+
+test('Unmatched API routes return JSON 404 and never HTML', async () => {
+  const res = await request(app, { method: 'GET', url: '/api/nonexistent-route' });
+  assert.equal(res.status, 404);
+  const data = await res.json();
+  assert.ok(data.error);
+  assert.match(data.error, /not found/i);
+});
+
+test('POST /api/attempts calculates score and persists attempt', async () => {
+  const res = await request(app, {
+    method: 'POST',
+    url: '/api/attempts',
+    body: {
+      quizId: 'qiz_test_01',
+      difficulty: 'Hard',
+      answers: [
+        { isCorrect: true, questionId: 'q1' },
+        { isCorrect: true, questionId: 'q2' },
+        { isCorrect: false, questionId: 'q3' }
+      ],
+      timeTakenSeconds: 35
+    }
+  });
+
+  assert.equal(res.status, 201);
+  const data = await res.json();
+  assert.equal(data.score, 2);
+  assert.equal(data.totalQuestions, 3);
+  assert.equal(data.difficulty, 'Hard');
+  // Hard difficulty multiplier = 2.0 -> 2 * 2.0 = 4 points
+  assert.equal(data.points, 4.0);
+  assert.equal(data.accuracy, 67);
 });

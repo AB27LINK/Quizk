@@ -1,6 +1,7 @@
 /**
  * server/routes/quiz.js
  * Quiz generation endpoint with validation, adaptive difficulty resolution, and rate limiting.
+ * Compatible with both local SQLite and remote persistent serverless databases.
  */
 
 const express = require('express');
@@ -26,7 +27,7 @@ router.post('/', optionalAuth, quizRateLimiter, async (req, res) => {
     let resolvedSourceTitle = title || 'Custom Notes';
 
     if (sourceId) {
-      const existing = db.get('SELECT id, title, content, user_id FROM sources WHERE id = ?', [sourceId]);
+      const existing = await db.get('SELECT id, title, content, user_id FROM sources WHERE id = ?', [sourceId]);
       if (!existing) {
         return res.status(404).json({ error: 'Source not found.' });
       }
@@ -54,11 +55,11 @@ router.post('/', optionalAuth, quizRateLimiter, async (req, res) => {
     let effectiveDifficulty = validDifficulty;
     if (validDifficulty === 'Auto') {
       if (sourceId) {
-        const recentAttempts = db.all(
+        const recentAttempts = await db.all(
           'SELECT score, total_questions, difficulty FROM attempts WHERE source_id = ? ORDER BY created_at DESC LIMIT 2',
           [sourceId]
         );
-        effectiveDifficulty = resolveAdaptiveDifficulty(recentAttempts);
+        effectiveDifficulty = resolveAdaptiveDifficulty(recentAttempts || []);
       } else {
         effectiveDifficulty = 'Medium';
       }
@@ -81,7 +82,7 @@ router.post('/', optionalAuth, quizRateLimiter, async (req, res) => {
     if (!targetSourceId && req.user) {
       targetSourceId = `src_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`;
       resolvedSourceTitle = title?.trim() || sourceText.slice(0, 40).replace(/[\n\r]+/g, ' ') + '...';
-      db.run(
+      await db.run(
         'INSERT INTO sources (id, user_id, title, content, char_count, created_at) VALUES (?, ?, ?, ?, ?, ?)',
         [targetSourceId, req.user.id, resolvedSourceTitle, sourceText, sourceText.length, now]
       );
@@ -89,22 +90,23 @@ router.post('/', optionalAuth, quizRateLimiter, async (req, res) => {
 
     // Save quiz record
     if (targetSourceId) {
-      db.run(
+      await db.run(
         `INSERT INTO quizzes (id, source_id, user_id, difficulty, effective_difficulty, language, question_count, created_at)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
         [quizId, targetSourceId, userId, validDifficulty, effectiveDifficulty, validLanguage, quizResult.questions.length, now]
       );
 
       // Save questions
-      quizResult.questions.forEach((q, idx) => {
+      for (let idx = 0; idx < quizResult.questions.length; idx++) {
+        const q = quizResult.questions[idx];
         const qId = `qst_${quizId}_${idx}`;
-        db.run(
+        await db.run(
           `INSERT INTO questions (id, quiz_id, q, options, answer, explanation, order_index)
            VALUES (?, ?, ?, ?, ?, ?, ?)`,
           [qId, quizId, q.q, JSON.stringify(q.options), q.answer, q.explanation, idx]
         );
         q.id = qId;
-      });
+      }
     } else {
       // Guest mode ephemeral IDs
       quizResult.questions.forEach((q, idx) => {
@@ -133,4 +135,3 @@ router.post('/', optionalAuth, quizRateLimiter, async (req, res) => {
 });
 
 module.exports = router;
-

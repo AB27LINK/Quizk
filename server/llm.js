@@ -102,40 +102,53 @@ function generateOfflineQuiz(source, count = 8, difficulty = 'Medium', language 
 
 /**
  * Calls Gemini API to generate questions.
+ * Uses gemini-1.5-flash with automated fallback to gemini-2.0-flash.
  */
 async function callGeminiAPI(prompt, apiKey) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+  const models = ['gemini-1.5-flash', 'gemini-2.0-flash', 'gemini-1.5-pro'];
+  let lastError = null;
 
-  const payload = {
-    contents: [
-      {
-        parts: [{ text: prompt }]
+  for (const model of models) {
+    try {
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+
+      const payload = {
+        contents: [
+          {
+            parts: [{ text: prompt }]
+          }
+        ],
+        generationConfig: {
+          temperature: 0.2,
+          responseMimeType: 'application/json'
+        }
+      };
+
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        const errorBody = await response.text().catch(() => '');
+        throw new Error(`Gemini API error (${model} - HTTP ${response.status}): ${errorBody}`);
       }
-    ],
-    generationConfig: {
-      temperature: 0.2,
-      responseMimeType: 'application/json'
+
+      const data = await response.json();
+      const candidate = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (!candidate) {
+        throw new Error(`Gemini API (${model}) returned an empty candidate`);
+      }
+
+      return candidate;
+    } catch (err) {
+      lastError = err;
+      console.warn(`[LLM] Model ${model} failed: ${err.message}`);
     }
-  };
-
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  });
-
-  if (!response.ok) {
-    const errorBody = await response.text().catch(() => '');
-    throw new Error(`Gemini API error (${response.status}): ${errorBody}`);
   }
 
-  const data = await response.json();
-  const candidate = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-  if (!candidate) {
-    throw new Error('Gemini API returned an empty response');
-  }
-
-  return candidate;
+  throw lastError || new Error('All Gemini API model attempts failed.');
 }
 
 /**

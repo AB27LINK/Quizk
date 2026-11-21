@@ -1,7 +1,9 @@
-// Root Express entry point for Vercel.
-// Vercel detects Express apps from a recognized root entry file that imports express.
+/**
+ * server.js
+ * Standalone root entry point for local execution or cloud container hosting.
+ */
+
 require('dotenv').config();
-require('express');
 const app = require('./server/index.js');
 
 module.exports = app;

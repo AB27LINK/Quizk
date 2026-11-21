@@ -172,7 +172,7 @@ export default function App() {
     if (initialTheme) setTheme(initialTheme);
 
     fetch('/api/me')
-      .then((res) => res.json())
+      .then((res) => readApiJson(res, 'check session'))
       .then((data) => {
         if (data.user) {
           setUser(data.user);
@@ -181,7 +181,9 @@ export default function App() {
           handleDemoLogin();
         }
       })
-      .catch(() => {});
+      .catch(() => {
+        handleDemoLogin();
+      });
   }, []);
 
   // Auto-fetch data on screen change
@@ -234,7 +236,7 @@ export default function App() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: 'abhi@quizk.dev', password: 'password123' })
     })
-      .then((res) => res.json())
+      .then((res) => readApiJson(res, 'sign in demo user'))
       .then((data) => {
         if (data.user) {
           setUser(data.user);
@@ -259,8 +261,7 @@ export default function App() {
       body: JSON.stringify(payload)
     })
       .then(async (res) => {
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error || 'Authentication failed');
+        const data = await readApiJson(res, 'authenticate');
         setUser(data.user);
         setAuthModalOpen(false);
         setAuthEmail('');
@@ -455,7 +456,7 @@ export default function App() {
         timeTakenSeconds: elapsedSeconds
       })
     })
-      .then((res) => res.json())
+      .then((res) => readApiJson(res, 'save quiz attempt'))
       .then((data) => {
         setLastResult({
           score: data.score,
@@ -518,8 +519,7 @@ export default function App() {
       })
     })
       .then(async (res) => {
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error || 'Failed to regenerate quiz');
+        const data = await readApiJson(res, 'regenerate quiz');
         startQuiz(data);
       })
       .catch((err) => {
@@ -534,7 +534,7 @@ export default function App() {
   function loadDashboard() {
     setLoadingDashboard(true);
     fetch('/api/dashboard')
-      .then((res) => res.json())
+      .then((res) => readApiJson(res, 'load dashboard metrics'))
       .then((data) => setDashboardData(data))
       .catch((err) => console.error(err))
       .finally(() => setLoadingDashboard(false));
@@ -543,7 +543,7 @@ export default function App() {
   function loadRoadmap() {
     setLoadingRoadmap(true);
     fetch('/api/roadmap')
-      .then((res) => res.json())
+      .then((res) => readApiJson(res, 'load study roadmap'))
       .then((data) => setRoadmapData(data))
       .catch((err) => console.error(err))
       .finally(() => setLoadingRoadmap(false));
@@ -552,7 +552,7 @@ export default function App() {
   function loadLeaderboard(diff, per) {
     setLoadingLb(true);
     fetch(`/api/leaderboard?difficulty=${encodeURIComponent(diff)}&period=${encodeURIComponent(per)}`)
-      .then((res) => res.json())
+      .then((res) => readApiJson(res, 'load leaderboard'))
       .then((data) => setLeaderboardData(data.leaderboard || []))
       .catch((err) => console.error(err))
       .finally(() => setLoadingLb(false));
@@ -562,7 +562,7 @@ export default function App() {
     setLoadingHistory(true);
     const url = historyDiffFilter === 'All' ? '/api/attempts' : `/api/attempts?difficulty=${historyDiffFilter}`;
     fetch(url)
-      .then((res) => res.json())
+      .then((res) => readApiJson(res, 'load attempt history'))
       .then((data) => setHistoryList(data.attempts || []))
       .catch((err) => console.error(err))
       .finally(() => setLoadingHistory(false));
@@ -570,7 +570,7 @@ export default function App() {
 
   function handleOpenPastAttempt(attemptId) {
     fetch(`/api/attempts/${attemptId}`)
-      .then((res) => res.json())
+      .then((res) => readApiJson(res, 'load past attempt details'))
       .then((data) => {
         if (data.attempt) {
           setReviewAttempt(data.attempt);
@@ -582,6 +582,7 @@ export default function App() {
   function handleDeleteSource(sourceId) {
     if (!window.confirm('Are you sure you want to delete this source and its attempts?')) return;
     fetch(`/api/sources/${sourceId}`, { method: 'DELETE' })
+      .then((res) => readApiJson(res, 'delete study source'))
       .then(() => {
         loadHistory();
         if (screen === 'dashboard') loadDashboard();
